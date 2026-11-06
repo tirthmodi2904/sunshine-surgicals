@@ -2602,3 +2602,17 @@ h1, h2, h3, p, a, strong, span { overflow-wrap: break-word; }
     font-size: 13px;
   }
 }
+
+
+.instrument-gallery-cta-content {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.instrument-gallery-cta-content p {
+  margin-bottom: 20px;
+}
+
+.instrument-gallery-cta-content .btn {
+  margin-inline: auto;
+}
