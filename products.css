@@ -64,3 +64,17 @@
 .products-page .gallery-card h3 {
   margin-top: 16px;
 }
+
+/* Products Page Header */
+.products-page ~ .site-header {
+  position: sticky;
+  top: 0;
+}
+
+.site-header {
+  position: sticky !important;
+  top: 0;
+  z-index: 1000;
+  background: #ffffff;
+  width: 100%;
+}

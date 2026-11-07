@@ -71,3 +71,49 @@ form.addEventListener('submit', (event) => {
   const text = `Hello Sunshine Surgicals,\n\nName: ${name}\nPhone/WhatsApp: ${phone}\nRequirement: ${message}\n\nI would like to request a quotation.`;
   window.open(`https://wa.me/919898119904?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
 });
+
+// =========================
+// PRODUCT IMAGE LIGHTBOX
+// =========================
+
+const productImages = document.querySelectorAll('.product-image');
+const productLightbox = document.getElementById('productLightbox');
+const lightboxImage = document.getElementById('lightboxImage');
+const lightboxCaption = document.getElementById('lightboxCaption');
+const lightboxClose = document.getElementById('lightboxClose');
+
+productImages.forEach(image => {
+  image.addEventListener('click', () => {
+    productLightbox.classList.add('active');
+
+    lightboxImage.src = image.src;
+    lightboxImage.alt = image.alt;
+
+    const productName = image.closest('.product-card').querySelector('h3').textContent;
+    lightboxCaption.textContent = productName;
+
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+// Close button
+lightboxClose.addEventListener('click', () => {
+  productLightbox.classList.remove('active');
+  document.body.style.overflow = '';
+});
+
+// Close when clicking outside the image
+productLightbox.addEventListener('click', event => {
+  if (event.target === productLightbox) {
+    productLightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+});
+
+// Close with Escape key
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') {
+    productLightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+});
